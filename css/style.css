@@ -420,13 +420,13 @@ body {
 
 .yt-slider-track {
   display: flex;
+  width: 100%;
   will-change: transform;
   transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .yt-slide {
-  min-width: 100%;
-  flex-shrink: 0;
+  flex: 0 0 100%;
 }
 
 .yt-nav {
