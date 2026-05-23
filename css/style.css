@@ -469,6 +469,21 @@ body {
   margin-top: 14px;
 }
 
+.yt-slider-controls .yt-nav {
+  flex-direction: row;
+  width: auto;
+  padding: 6px 0;
+  gap: 10px;
+}
+
+.yt-slider-controls .yt-nav .yt-nav-line {
+  width: 28px;
+}
+
+.yt-slider-controls .yt-nav:hover .yt-nav-line {
+  width: 40px;
+}
+
 .yt-slider-counter {
   text-align: center;
   font-family: 'Cormorant Garamond', serif;
