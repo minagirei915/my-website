@@ -41,26 +41,39 @@
         お問い合わせはこちらのフォームからどうぞ。<br />
         ※ お返事にお時間をいただく場合がございます。
       </p>
-      <!-- ★ action属性にFormspreeなどのエンドポイントを設定してください -->
-      <form class="contact-form" action="#" method="post">
+      <iframe name="hidden_iframe" style="display:none;" aria-hidden="true"></iframe>
+      <p class="contact-success" id="contact-success" style="display:none;">
+        お問い合わせを受け付けました。ありがとうございます。
+      </p>
+      <form class="contact-form" id="contact-form"
+        action="https://docs.google.com/forms/d/e/1FAIpQLSeX87gOmguzm3ER0uTkp448-XUgyJXfmNsFyFkaa5voKKm0ZA/formResponse"
+        method="post" target="hidden_iframe">
         <div class="form-group">
           <label for="name">お名前</label>
-          <input type="text" id="name" name="name" required placeholder="山田 太郎" />
+          <input type="text" id="name" name="entry.669511016" required placeholder="山田 太郎" />
         </div>
         <div class="form-group">
           <label for="email">メールアドレス</label>
-          <input type="email" id="email" name="email" required placeholder="example@mail.com" />
+          <input type="email" id="email" name="entry.541590220" required placeholder="example@mail.com" />
         </div>
         <div class="form-group">
           <label for="subject">件名</label>
-          <input type="text" id="subject" name="subject" placeholder="お問い合わせ件名" />
+          <input type="text" id="subject" name="entry.194836503" placeholder="お問い合わせ件名" />
         </div>
         <div class="form-group">
           <label for="message">メッセージ</label>
-          <textarea id="message" name="message" rows="5" required placeholder="メッセージをご入力ください"></textarea>
+          <textarea id="message" name="entry.1609401059" rows="5" required placeholder="メッセージをご入力ください"></textarea>
         </div>
         <button type="submit" class="form-submit">送 信</button>
       </form>
+      <script>
+        document.getElementById('contact-form').addEventListener('submit', function () {
+          setTimeout(function () {
+            document.getElementById('contact-form').style.display = 'none';
+            document.getElementById('contact-success').style.display = 'block';
+          }, 500);
+        });
+      </script>
     </div>
 
   </div>

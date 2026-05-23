@@ -825,6 +825,14 @@ body {
   text-align: center;
   margin-bottom: 8px;
 }
+.contact-success {
+  text-align: center;
+  padding: 32px 0;
+  font-size: 0.95rem;
+  color: var(--text-sub);
+  letter-spacing: 0.08em;
+}
+
 .contact-form {
   display: flex;
   flex-direction: column;
