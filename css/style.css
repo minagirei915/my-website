@@ -308,6 +308,12 @@ body {
   filter: grayscale(1) opacity(0.8);
 }
 
+.profile-sns-btn svg,
+.profile-sns-btn .tc-icon { color: var(--text-sub); }
+
+.profile-sns-btn:hover svg,
+.profile-sns-btn:hover .tc-icon { color: var(--text-main); }
+
 /* ── SNSボタン ── */
 .section-title {
   font-size: 0.75rem;
@@ -396,6 +402,10 @@ body {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 20px;
+}
+
+.yt-video-item {
+  min-width: 0;
 }
 
 .yt-video-main { grid-column: span 2; }
