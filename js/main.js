@@ -1,18 +1,24 @@
-// 花びら生成
+// 泡生成
 (function () {
   const container = document.getElementById('petals');
   if (!container) return;
-  const colors = ['#e8d0e8', '#d8c8f0', '#f0d8e0', '#d0e0f0', '#f0e8d8'];
-  const count = 18;
+  const colors = [
+    'rgba(150, 220, 245, 0.35)',
+    'rgba(120, 200, 235, 0.28)',
+    'rgba(200, 240, 255, 0.30)',
+    'rgba(170, 230, 248, 0.32)',
+    'rgba(100, 195, 228, 0.25)',
+  ];
+  const count = 22;
 
   for (let i = 0; i < count; i++) {
     const el = document.createElement('div');
     el.className = 'petal';
 
-    const size = Math.random() * 8 + 6;
+    const size = Math.random() * 10 + 5;
     const left = Math.random() * 100;
-    const delay = Math.random() * 12;
-    const duration = Math.random() * 10 + 12;
+    const delay = Math.random() * 14;
+    const duration = Math.random() * 12 + 14;
     const color = colors[Math.floor(Math.random() * colors.length)];
 
     el.style.cssText = `
@@ -21,7 +27,7 @@
       height: ${size}px;
       background: ${color};
       animation-duration: ${duration}s;
-      animation-delay: ${delay}s;
+      animation-delay: -${delay}s;
     `;
 
     container.appendChild(el);
