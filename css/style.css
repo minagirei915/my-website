@@ -994,7 +994,8 @@ body {
 }
 /* View More button */
 .view-more-wrap {
-  text-align: center;
+  display: flex;
+  justify-content: center;
   margin-top: 28px;
 }
 .view-more-btn {
