@@ -3,19 +3,19 @@
   const container = document.getElementById('petals');
   if (!container) return;
   const colors = [
-    'rgba(150, 220, 245, 0.35)',
-    'rgba(120, 200, 235, 0.28)',
-    'rgba(200, 240, 255, 0.30)',
-    'rgba(170, 230, 248, 0.32)',
-    'rgba(100, 195, 228, 0.25)',
+    'rgba(150, 220, 245, 0.75)',
+    'rgba(120, 200, 235, 0.68)',
+    'rgba(200, 240, 255, 0.72)',
+    'rgba(170, 230, 248, 0.70)',
+    'rgba(100, 195, 228, 0.65)',
   ];
-  const count = 22;
+  const count = 38;
 
   for (let i = 0; i < count; i++) {
     const el = document.createElement('div');
     el.className = 'petal';
 
-    const size = Math.random() * 10 + 5;
+    const size = Math.random() * 18 + 12;
     const left = Math.random() * 100;
     const delay = Math.random() * 14;
     const duration = Math.random() * 12 + 14;
