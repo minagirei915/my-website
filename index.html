@@ -321,6 +321,21 @@
     wrap.querySelector('.yt-prev').addEventListener('click', function () { go(cur - 1); });
     wrap.querySelector('.yt-next').addEventListener('click', function () { go(cur + 1); });
 
+    var touchStartX = 0;
+    var touchStartY = 0;
+    var viewport = wrap.querySelector('.yt-slider-viewport');
+    viewport.addEventListener('touchstart', function (e) {
+      touchStartX = e.touches[0].clientX;
+      touchStartY = e.touches[0].clientY;
+    }, { passive: true });
+    viewport.addEventListener('touchend', function (e) {
+      var dx = e.changedTouches[0].clientX - touchStartX;
+      var dy = e.changedTouches[0].clientY - touchStartY;
+      if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 40) {
+        go(dx < 0 ? cur + 1 : cur - 1);
+      }
+    }, { passive: true });
+
     function fitCaptions() {
       slides.forEach(function (slide) {
         var cap = slide.querySelector('.yt-caption');
