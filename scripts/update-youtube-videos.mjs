@@ -59,14 +59,14 @@ function renderMovieGrid(videos) {
   const ind = '      ';
   const cards = videos.map((v) => {
     const cap = escapeHtml(cleanTitle(v.title));
-    const href = 'https://www.youtube.com/watch?v=' + v.id;
-    const thumb = 'https://i.ytimg.com/vi/' + v.id + '/hqdefault.jpg';
+    const href = 'https://www.youtube.com/watch?v=' + encodeURIComponent(v.id);
+    const thumb = 'https://i.ytimg.com/vi/' + encodeURIComponent(v.id) + '/hqdefault.jpg';
     return [
       ind + '  <div class="yt-video-item">',
       ind + '    <div class="yt-embed-wrap">',
       ind + '      <a class="yt-link-card"',
       ind + `         href="${href}"`,
-      ind + '         target="_blank" rel="noopener"',
+      ind + '         target="_blank" rel="noopener noreferrer"',
       ind + `         aria-label="${cap} — YouTube で視聴">`,
       ind + `        <img src="${thumb}"`,
       ind + `             alt="${cap}" loading="lazy" />`,
@@ -232,4 +232,4 @@ await writeFile(outputPath, JSON.stringify({
 }, null, 2) + '\n', 'utf8');
 
 console.log(`Wrote ${videos.length} videos to ${outputPath}.`);
-await writeMovieHtml(videos);
+if (videos.length > 0) await writeMovieHtml(videos);
