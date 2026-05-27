@@ -324,24 +324,27 @@
     var touchStartX = 0;
     var touchStartY = 0;
     var viewport = wrap.querySelector('.yt-slider-viewport');
-    viewport.style.position = 'relative';
-    var overlay = document.createElement('div');
-    overlay.style.cssText = 'position:absolute;inset:0;z-index:2;';
-    viewport.appendChild(overlay);
-    overlay.addEventListener('touchstart', function (e) {
-      touchStartX = e.touches[0].clientX;
-      touchStartY = e.touches[0].clientY;
-    }, { passive: true });
-    overlay.addEventListener('touchend', function (e) {
-      var dx = e.changedTouches[0].clientX - touchStartX;
-      var dy = e.changedTouches[0].clientY - touchStartY;
-      if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 40) {
-        go(dx < 0 ? cur + 1 : cur - 1);
-      } else {
-        overlay.style.pointerEvents = 'none';
-        setTimeout(function () { overlay.style.pointerEvents = ''; }, 400);
-      }
-    }, { passive: true });
+    var touchCapable = window.matchMedia('(pointer: coarse)').matches;
+    if (touchCapable) {
+      viewport.style.position = 'relative';
+      var overlay = document.createElement('div');
+      overlay.style.cssText = 'position:absolute;inset:0;z-index:2;';
+      viewport.appendChild(overlay);
+      overlay.addEventListener('touchstart', function (e) {
+        touchStartX = e.touches[0].clientX;
+        touchStartY = e.touches[0].clientY;
+      }, { passive: true });
+      overlay.addEventListener('touchend', function (e) {
+        var dx = e.changedTouches[0].clientX - touchStartX;
+        var dy = e.changedTouches[0].clientY - touchStartY;
+        if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 40) {
+          go(dx < 0 ? cur + 1 : cur - 1);
+        } else {
+          overlay.style.pointerEvents = 'none';
+          setTimeout(function () { overlay.style.pointerEvents = ''; }, 400);
+        }
+      }, { passive: true });
+    }
 
     function fitCaptions() {
       slides.forEach(function (slide) {
